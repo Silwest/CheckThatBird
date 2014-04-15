@@ -41,6 +41,9 @@ public class Scrollable {
     public float getTailX(){
         return position.x + width;
     }
+    public void stop() {
+        velocity.x = 0;
+    }
     public float getX(){
         return position.x;
     }
@@ -50,6 +53,7 @@ public class Scrollable {
     public int getWidth(){
         return width;
     }
+
     public int getHeight(){
         return height;
     }

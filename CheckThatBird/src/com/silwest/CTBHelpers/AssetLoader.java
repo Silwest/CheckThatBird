@@ -1,8 +1,10 @@
 package com.silwest.CTBHelpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
@@ -17,6 +19,8 @@ public class AssetLoader {
     public static TextureRegion bird, birdDown, birdUp;
 
     public static TextureRegion skullUp, skullDown, bar;
+    public static Sound dead, flap, coin;
+    public static BitmapFont font, shadow;
 
     public static void load(){
 
@@ -49,9 +53,21 @@ public class AssetLoader {
 
         bar = new TextureRegion(texture, 136, 16, 22, 3);
         bar.flip(false, true);
+        dead = Gdx.audio.newSound(Gdx.files.internal("E:\\Silwest\\Android\\CheckThatBird-android\\assets\\data\\dead.wav"));
+        flap = Gdx.audio.newSound(Gdx.files.internal("E:\\Silwest\\Android\\CheckThatBird-android\\assets\\data\\flap.wav"));
+        coin = Gdx.audio.newSound(Gdx.files.internal("E:\\Silwest\\Android\\CheckThatBird-android\\assets\\data\\coin.wav"));
+        font = new BitmapFont(Gdx.files.internal("E:\\Silwest\\Android\\CheckThatBird-android\\assets\\data\\text.fnt"));
+        font.setScale(.25f, -.25f);
+        shadow = new BitmapFont(Gdx.files.internal("E:\\Silwest\\Android\\CheckThatBird-android\\assets\\data\\shadow.fnt"));
+        shadow.setScale(.25f, -.25f);
     }
 
     public static void dispose(){
         texture.dispose();
+        dead.dispose();
+        flap.dispose();
+        coin.dispose();
+        font.dispose();
+        shadow.dispose();
     }
 }
